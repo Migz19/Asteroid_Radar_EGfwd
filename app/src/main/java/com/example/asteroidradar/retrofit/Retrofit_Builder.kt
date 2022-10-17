@@ -22,6 +22,8 @@ interface ApiCalls {
         @Query("api_key") api_key: String = BuildConfig.API_KEY
     ): String
 
+}
+interface PicApi{
     @GET("planetary/apod")
     suspend fun getPictureOfDay(
         @Query("api_key") api_key: String = BuildConfig.API_KEY
@@ -32,11 +34,18 @@ private val moshi = Moshi.Builder()
     .build()
 private val retrofit =
                 Retrofit.Builder()
-                    .addConverterFactory(MoshiConverterFactory.create(moshi))
-                    .addCallAdapterFactory(CoroutineCallAdapterFactory())
+                    .addConverterFactory(ScalarsConverterFactory.create())
                     .baseUrl(Constants.BASE_URL)
                     .build()
+
+private val picRetrofit=Retrofit.Builder()
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .addCallAdapterFactory(CoroutineCallAdapterFactory())
+    .baseUrl(Constants.BASE_URL)
+    .build()
+
 object Api{
     val apiCalls:ApiCalls by lazy { retrofit.create(ApiCalls::class.java) }
+    val picApi : PicApi by lazy { picRetrofit.create(PicApi::class.java) }
 }
 

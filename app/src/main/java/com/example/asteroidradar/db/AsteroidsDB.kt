@@ -3,6 +3,8 @@ package com.example.asteroidradar.db
 import android.content.Context
 import androidx.room.*
 import com.example.asteroidradar.model.Asteroid
+import com.example.asteroidradar.model.PictureOfDay
+import com.example.asteroidradar.retrofit.PicApi
 
 @Database(entities = [Asteroid::class], version = 1, exportSchema = false)
 abstract class AsteroidsDatabase:RoomDatabase() {
@@ -18,4 +20,19 @@ abstract class AsteroidsDatabase:RoomDatabase() {
             }
             return INSTANCE
         }
+    }
+@Database (entities = [PictureOfDay::class], version = 1, exportSchema = false)
+abstract class PictureDB:RoomDatabase(){
+    abstract val picDao:PicDao
+}
+private lateinit var PIC_INSTANCE:PictureDB
+fun getPicDatabase(context: Context):PictureDB{
+    synchronized(PictureDB::class.java){
+        if (!::PIC_INSTANCE.isInitialized) {
+            PIC_INSTANCE = Room.databaseBuilder(context.applicationContext,
+                PictureDB::class.java,
+                "PICTURE").build()
+        }
+        return PIC_INSTANCE
+    }
     }

@@ -1,8 +1,11 @@
 package com.example.asteroidradar.retrofit
 
+import android.annotation.SuppressLint
+import androidx.room.TypeConverter
 import com.example.asteroidradar.Constants
 import com.example.asteroidradar.model.Asteroid
 import org.json.JSONObject
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
