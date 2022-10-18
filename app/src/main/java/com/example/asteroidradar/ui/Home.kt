@@ -39,10 +39,12 @@ class Home : Fragment() {
         binding = HomeBinding.inflate(inflater, container, false)
         binding.viewmodel = model
         bindRecycler(adapter)
+
         model.pictureOfDay.observe(viewLifecycleOwner){ picture->
             bindTodayImage(binding.activityMainImageOfTheDay,picture.url)
             bindTodayImageTitle(binding.nameTV,picture.title)
         }
+
         model.navigateToAsteroid.observe(viewLifecycleOwner) { asteroid ->
             asteroid?.let {
                 findNavController().navigate(

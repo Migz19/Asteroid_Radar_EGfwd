@@ -23,7 +23,7 @@ class WorkScheduler : Application() {
         val workManager = WorkManager.getInstance(applicationContext)
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)
-            .setRequiresCharging(true)
+           // .setRequiresCharging(true)
            .build()
         val fetchDataRequest = PeriodicWorkRequestBuilder<RefreshWorker>(1, TimeUnit.DAYS).setConstraints(constraints).build()
         val deleteDataRequest = PeriodicWorkRequestBuilder<DeleteWorker>(1,TimeUnit.DAYS).setConstraints(constraints).build()

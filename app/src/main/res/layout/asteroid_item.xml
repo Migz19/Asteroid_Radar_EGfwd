@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textColor="@color/default_text_color"
+            app:tvContentDescription="@{asteroid.name}"
             android:text="@{asteroid.name}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -36,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/default_text_color"
+            app:tvContentDescription="@{asteroid.close_approach_date}"
             android:text="@{asteroid.close_approach_date}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/asteroid_name"
@@ -48,6 +50,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:isHazardousCD="@{asteroid.hazardous}"
             app:statusIcon="@{asteroid.hazardous}"
             tools:src="@drawable/ic_status_potentially_hazardous" />
     </androidx.constraintlayout.widget.ConstraintLayout>
