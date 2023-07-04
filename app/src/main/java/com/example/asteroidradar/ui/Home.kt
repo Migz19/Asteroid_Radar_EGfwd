@@ -3,25 +3,16 @@ package com.example.asteroidradar.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.work.*
 import com.example.asteroidradar.Day
 import com.example.asteroidradar.R
-import com.example.asteroidradar.work.RefreshWorker
 import com.example.asteroidradar.adapters.AsteroidClickListener
 import com.example.asteroidradar.adapters.FeedAdapter
 import com.example.asteroidradar.adapters.bindTodayImage
 import com.example.asteroidradar.adapters.bindTodayImageTitle
 import com.example.asteroidradar.data.AstreoidViewModel
 import com.example.asteroidradar.databinding.HomeBinding
-import com.example.asteroidradar.work.WorkScheduler
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.util.concurrent.TimeUnit
 
 class Home : Fragment() {
     private lateinit var model: AstreoidViewModel
@@ -32,7 +23,7 @@ class Home : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        model = ViewModelProvider(this)[AstreoidViewModel::class.java]
+            model = ViewModelProvider(this)[AstreoidViewModel::class.java]
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {

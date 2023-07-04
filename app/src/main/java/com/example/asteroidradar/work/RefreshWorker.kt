@@ -10,12 +10,6 @@ import com.example.asteroidradar.Day
 import com.example.asteroidradar.data.Repository
 import com.example.asteroidradar.db.getDatabase
 import com.example.asteroidradar.db.getPicDatabase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.withContext
-import java.io.IOException
-import java.text.SimpleDateFormat
-import java.util.*
 
 class RefreshWorker(
     appContext: Context,

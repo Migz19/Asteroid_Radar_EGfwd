@@ -1,10 +1,11 @@
 package com.example.asteroidradar.db
 
 import android.content.Context
-import androidx.room.*
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.example.asteroidradar.model.Asteroid
 import com.example.asteroidradar.model.PictureOfDay
-import com.example.asteroidradar.retrofit.PicApi
 
 @Database(entities = [Asteroid::class], version = 1, exportSchema = false)
 abstract class AsteroidsDatabase:RoomDatabase() {

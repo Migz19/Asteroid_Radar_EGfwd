@@ -1,8 +1,5 @@
 package com.example.asteroidradar.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.example.asteroidradar.Constants
 import com.example.asteroidradar.db.AsteroidsDatabase
 import com.example.asteroidradar.db.PictureDB
 import com.example.asteroidradar.model.Asteroid
@@ -12,8 +9,7 @@ import com.example.asteroidradar.retrofit.parseAsteroidsJsonResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
-import java.text.SimpleDateFormat
-import java.util.*
+
 
 class Repository(private var database: AsteroidsDatabase) {
     private lateinit var pictureDB: PictureDB
